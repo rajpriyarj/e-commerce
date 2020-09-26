@@ -19,7 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="077e1b05-95cb-4371-be9e-60a406a346de" name="Default Changelist" comment="" />
+    <list default="true" id="077e1b05-95cb-4371-be9e-60a406a346de" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_attributes.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_attributes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_category.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_customers.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_customers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_products.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_shoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_shoppingCart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@sentry/node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@sentry/node/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@sentry/tracing/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@sentry/tracing/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jsonwebtoken/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/customer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/database/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/database/database.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +64,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -72,7 +89,9 @@
       <option name="presentableId" value="Default" />
       <updated>1601011055749</updated>
       <workItem from="1601011056822" duration="5790000" />
-      <workItem from="1601026725357" duration="2927000" />
+      <workItem from="1601026725357" duration="3747000" />
+      <workItem from="1601097814483" duration="156000" />
+      <workItem from="1601097971156" duration="1677000" />
     </task>
     <servers />
   </component>
@@ -92,10 +111,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="213" y="267" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601011391341">
+    <state x="213" y="267" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601098527879">
       <screen x="0" y="27" width="1920" height="983" />
     </state>
-    <state x="213" y="267" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.983@0.27.1920.983" timestamp="1601011391341" />
+    <state x="213" y="267" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.983@0.27.1920.983" timestamp="1601098527879" />
+    <state x="258" y="276" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601097968193">
+      <screen x="0" y="27" width="1920" height="983" />
+    </state>
+    <state x="258" y="276" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.983@0.27.1920.983" timestamp="1601097968193" />
     <state width="917" height="252" key="GridCell.Tab.0.bottom" timestamp="1601011184767">
       <screen x="0" y="27" width="1920" height="983" />
     </state>

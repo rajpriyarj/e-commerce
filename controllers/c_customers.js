@@ -33,7 +33,7 @@ const postCustomer = async (params) => {
         delete params.password;
         params.encryptedPassword = encryptedPassword;
 
-        [err, result] = await to(database.customer_model.findAll({
+        [err, result] = await to(database.customerModel.findAll({
             where: {
                 username: params.username
             }
@@ -45,7 +45,7 @@ const postCustomer = async (params) => {
             throw new Error(' A customer with this username already exists !')
         }
 
-        [err, result] = await to(database.customer_model.create(params))
+        [err, result] = await to(database.customerModel.create(params))
         if (err) {
             throw new Error(err.message)
         }
@@ -82,7 +82,7 @@ const loginCustomer = async (params) => {
             throw new Error('password is required attribute!')
         }
 
-        [err, result] = await to(database.customer_model.findAll({
+        [err, result] = await to(database.customerModel.findAll({
             where: {
                 username: params.username
             }
@@ -129,7 +129,7 @@ const getCustomer = async (params) => {
     try {
         let err, result
 
-        [err, result] = await to(database.customer_model.findAll({
+        [err, result] = await to(database.customerModel.findAll({
             where: {
                 username: params.user.username
             }
@@ -162,7 +162,7 @@ const updateAddress = async (params) => {
             throw new Error('address is a required attribute!')
         }
 
-        [err, result] = await to(database.customer_model.update({
+        [err, result] = await to(database.customerModel.update({
             address: params.body.address
         }, {
             where: {
@@ -197,7 +197,7 @@ const updateCreditCard = async (params) => {
             throw new Error('creditCard number is a required attribute!')
         }
 
-        [err, result] = await to(database.customer_model.update({
+        [err, result] = await to(database.customerModel.update({
             creditCardNumber: params.body.creditCard
         }, {
             where: {

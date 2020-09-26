@@ -8,7 +8,7 @@ const getAttributes = async (params) => {
         let err, result
 
         if (params.attribute_id) {
-            [err, result] = await to(database.attributes_model.findAll({
+            [err, result] = await to(database.attributeModel.findAll({
                 where: {
                     id: params.attribute_id
                 }
@@ -26,7 +26,7 @@ const getAttributes = async (params) => {
                 'error': null
             }
         } else if (params.product_id) {
-            [err, result] = await to(database.attributes_model.findAll({
+            [err, result] = await to(database.attributeModel.findAll({
                 where: {
                     product_id: params.product_id
                 }
@@ -44,7 +44,7 @@ const getAttributes = async (params) => {
                 'error': null
             }
         } else {
-            [err, result] = await to(database.attributes_model.findAll())
+            [err, result] = await to(database.attributeModel.findAll())
             if (err) {
                 throw new Error(err.message)
             }
@@ -80,7 +80,7 @@ const postAttribute = async (params) => {
             throw new Error('Attribute\'s product_id is a required value!')
         }
 
-        [err, result] = await to(database.attributes_model.create(params))
+        [err, result] = await to(database.attributeModel.create(params))
         if (err) {
             throw new Error(err.message)
         }

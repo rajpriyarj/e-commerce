@@ -24,7 +24,12 @@ const categoryModel = connection.define('category', {
         type: DataTypes.STRING,
         notEmpty: true,
         notNull: true
-    }
+    },
+    // description: {
+    //     type: DataTypes.STRING,
+    //     notEmpty: true,
+    //     notNull: true
+    // }
 })
 
 const productModel = connection.define('products', {

@@ -5,6 +5,21 @@ const {to} = require('await-to-js')
 const Customer = require('../controllers/c_customers')
 const authenticate = require('../controllers/auth')
 
+
+router.get('/', authenticate, async (req, res) => {
+    let err, result
+    [err, result] = await to(Customer.getCustomer(req))
+    if (err) {
+        return res.json({
+            'data': null,
+            'error': {
+                'message': err.message
+            }
+        })
+    }
+    return res.json(result)
+})
+
 router.post('/', async (req, res) => {
     let err, result
     [err, result] = await to(Customer.postCustomer(req.body))
@@ -33,19 +48,6 @@ router.post('/login', async (req, res) => {
     return res.json(result)
 })
 
-router.get('/', authenticate, async (req, res) => {
-    let err, result
-    [err, result] = await to(Customer.getCustomer(req))
-    if (err) {
-        return res.json({
-            'data': null,
-            'error': {
-                'message': err.message
-            }
-        })
-    }
-    return res.json(result)
-})
 
 router.put('/address', authenticate, async (req, res) => {
     let err, result

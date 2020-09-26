@@ -13,7 +13,7 @@ const getCategories = async (params) => {
         let err, result
 
         if (params.category_id) {
-            [err, result] = await to(database.category_model.findAll({
+            [err, result] = await to(database.categoryModel.findAll({
                 where: {
                     id: params.category_id
                 }
@@ -31,7 +31,7 @@ const getCategories = async (params) => {
                 'error': null
             }
         } else if (params.product_id) {
-            [err, result] = await to(database.product_model.findAll({
+            [err, result] = await to(database.productModel.findAll({
                 attributes: ['category_id'],
                 where: {
                     id: params.product_id
@@ -49,7 +49,7 @@ const getCategories = async (params) => {
                 category_id: result[0]['dataValues']['category_id']
             })
         } else {
-            [err, result] = await to(database.category_model.findAll())
+            [err, result] = await to(database.categoryModel.findAll())
             if (err) {
                 throw new Error(err.message)
             }
@@ -79,7 +79,7 @@ const postCategory = async (params) => {
             throw new Error('name missing!')
         }
 
-        [err, result] = await to(database.category_model.create({
+        [err, result] = await to(database.categoryModel.create({
             name: params.name
         }))
         if (err) {

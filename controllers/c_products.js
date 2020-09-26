@@ -8,7 +8,7 @@ const getProducts = async (params) => {
         let err, result
 
         if (params.product_id) {
-            [err, result] = await to(database.product_model.findAll({
+            [err, result] = await to(database.productModel.findAll({
                 where: {
                     id: params.product_id
                 }
@@ -26,7 +26,7 @@ const getProducts = async (params) => {
                 'error': null
             }
         } else if (params.category_id) {
-            [err, result] = await to(database.product_model.findAll({
+            [err, result] = await to(database.productModel.findAll({
                 where: {
                     category_id: params.category_id
                 }
@@ -44,7 +44,7 @@ const getProducts = async (params) => {
                 'error': null
             }
         } else {
-            [err, result] = await to(database.product_model.findAll())
+            [err, result] = await to(database.productModel.findAll())
             if (err) {
                 throw new Error(err.message)
             }
@@ -82,7 +82,7 @@ const postProduct = async (params) => {
             throw new Error('Product\'s category_id is a required attribute')
         }
 
-        [err, result] = await to(database.product_model.create(params))
+        [err, result] = await to(database.productModel.create(params))
         if (err) {
             throw new Error(err.message)
         }
@@ -110,7 +110,7 @@ const postReview = async (params) => {
             throw new Error('Please provide the product_id to post the review for')
         }
 
-        [err, result] = await to(database.product_model.findAll({
+        [err, result] = await to(database.productModel.findAll({
             where: {
                 id: params.product_id
             }
@@ -126,7 +126,7 @@ const postReview = async (params) => {
             throw new Error('Review cannot be blank!')
         }
 
-        [err, result] = await to(database.review_model.create(params))
+        [err, result] = await to(database.reviewModel.create(params))
         if (err) {
             throw new Error(err.message)
         }
@@ -150,7 +150,7 @@ const postReview = async (params) => {
 const getReview = async (params) => {
     try {
         let err, result
-        [err, result] = await to(database.review_model.findAll({
+        [err, result] = await to(database.reviewModel.findAll({
             where: {
                 product_id: params.product_id
             }

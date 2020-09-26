@@ -8,7 +8,7 @@ const Order = require('./../controllers/orders_c')
 const showCart = async (params) => {
     try {
         let err, result
-        [err, result] = await to(database.cartItems_model.findAll({
+        [err, result] = await to(database.cartItemsModel.findAll({
             where: {
                 customer: params.username
             }
@@ -52,7 +52,7 @@ const addItem = async (params) => {
             throw new Error("qty is not a valid natural number !")
         }
 
-        [err, result] = await to(database.product_model.findAll({
+        [err, result] = await to(database.productModel.findAll({
             where: {
                 id: params.body.product_id
             }
@@ -64,7 +64,7 @@ const addItem = async (params) => {
             throw new Error(' no product found for this id!')
         }
 
-        [err, result] = await to(database.cartItems_model.findAll({
+        [err, result] = await to(database.cartItemsModel.findAll({
             where: {
                 customer: params.body.customer,
                 product_id: params.body.product_id
@@ -74,7 +74,7 @@ const addItem = async (params) => {
             throw new Error(err.message)
         }
         if (result[0]) {
-            [err, result] = await to(database.cartItems_model.update({
+            [err, result] = await to(database.cartItemsModel.update({
                 qty: Sequelize.literal(`qty+${params.body.qty}`)
             }, {
                 where: {
@@ -86,7 +86,7 @@ const addItem = async (params) => {
                 throw new Error(err.message)
             }
         } else {
-            [err, result] = await to(database.cartItems_model.create(params.body))
+            [err, result] = await to(database.cartItemsModel.create(params.body))
             if (err) {
                 throw new Error(err.message)
             }
@@ -141,7 +141,7 @@ const updateQty = async (params) => {
             throw new Error(' no product found for this id!')
         }
 
-        [err, result] = await to(database.cartItems_model.findAll({
+        [err, result] = await to(database.cartItemsModel.findAll({
             where: {
                 customer: params.body.customer,
                 product_id: params.body.product_id
@@ -154,7 +154,7 @@ const updateQty = async (params) => {
             throw new Error('no product with this id exists in the cart')
         }
 
-        [err, result] = await to(database.cartItems_model.update({
+        [err, result] = await to(database.cartItemsModel.update({
             qty: params.body.qty
         }, {
             where: {
@@ -192,7 +192,7 @@ const removeItem = async (params) => {
             throw new Error('product_id is a required attribute!')
         }
 
-        [err, result] = await to(database.product_model.findAll({
+        [err, result] = await to(database.productModel.findAll({
             where: {
                 id: params.body.product_id
             }
@@ -204,7 +204,7 @@ const removeItem = async (params) => {
             throw new Error(' no product found for this id!')
         }
 
-        [err, result] = await to(database.cartItems_model.findAll({
+        [err, result] = await to(database.cartItemsModel.findAll({
             where: {
                 customer: params.body.customer,
                 product_id: params.body.product_id
@@ -217,7 +217,7 @@ const removeItem = async (params) => {
             throw new Error('no product with this id exists in the cart')
         }
 
-        [err, result] = await to(database.cartItems_model.destroy({
+        [err, result] = await to(database.cartItemsModel.destroy({
             where: {
                 customer: params.body.customer,
                 product_id: params.body.product_id
@@ -246,7 +246,7 @@ const removeItem = async (params) => {
 const getAmount = async (params) => {
     try {
         let err, result
-        [err, result] = await to(database.cartItems_model.findAll({
+        [err, result] = await to(database.cartItemsModel.findAll({
             where: {
                 customer: params.user.username
             }
@@ -257,7 +257,7 @@ const getAmount = async (params) => {
 
         let amount = 0;
         for (const item of result) {
-            [err, result] = await to(database.product_model.findAll({
+            [err, result] = await to(database.productModel.findAll({
                 where: {
                     id: item['dataValues']['product_id']
                 }
@@ -300,7 +300,7 @@ const checkOut = async (params) => {
         const amount_message = result.data.message;
 
 
-        [err, result] = await to(database.cartItems_model.findAll({
+        [err, result] = await to(database.cartItemsModel.findAll({
             where: {
                 customer: params.user.username
             }

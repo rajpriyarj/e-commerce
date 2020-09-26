@@ -5,8 +5,9 @@ const logger = require('./../src/lib/logger/winston')
 
 
 const getOrders = async (params) => {
+    let err, result
     try {
-        [err, result] = await to(database.order_model.findAll({
+        [err, result] = await to(database.orderModel.findAll({
             where: {
                 customer: params.username
             }
@@ -50,7 +51,7 @@ const newOrder = async (params) => {
             throw new Error("qty is not a valid natural number !")
         }
 
-        [err, result] = await to(database.product_model.findAll({
+        [err, result] = await to(database.productModel.findAll({
             where: {
                 id: params.body.product_id
             }
@@ -64,7 +65,7 @@ const newOrder = async (params) => {
 
         let price = result[0]['dataValues']['price'];
 
-        [err, result] = await to(database.customer_model.findAll({
+        [err, result] = await to(database.customerModel.findAll({
             where: {
                 username: params.user.username
             }
@@ -78,7 +79,7 @@ const newOrder = async (params) => {
         }
 
 
-        [err, result] = await to(database.order_model.create(params.body))
+        [err, result] = await to(database.orderModel.create(params.body))
         if (err) {
             throw new Error(err.message)
         }

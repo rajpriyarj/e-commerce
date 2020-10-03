@@ -78,7 +78,7 @@ const newOrder = async (req, res) => {
         return res.json({
             'data': {
                 'message': 'Order placed successfully!',
-                'amount': `₹${price} x ${params.body.qty} items = ₹${price * params.body.qty}`
+                'amount': `₹${price} x ${req.body.qty} items = ₹${price * req.body.qty}`
             }, 'error': null
         })
     } catch (err) {

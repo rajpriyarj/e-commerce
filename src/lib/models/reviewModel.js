@@ -18,7 +18,7 @@ const reviewModel = connection.define('reviews', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: require('./productModel').product_model,
+            model: require('../models/productModel').productModel,
             key: 'id'
         }
     }

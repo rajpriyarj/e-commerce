@@ -20,28 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="077e1b05-95cb-4371-be9e-60a406a346de" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_attributes.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_attributes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_category.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_customers.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_customers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/c_orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_products.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_shoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_shoppingCart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/attributes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/attributes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/customer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/shoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/shoppingCart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/alerting/sentry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/alerting/sentry.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/database/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/database/connection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/logger/winston.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/logger/winston.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_product.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/models/attributesModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/attributesModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/models/cartModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/cartModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/models/orderModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/orderModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/models/productModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/productModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/models/reviewModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/reviewModel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +63,7 @@
     <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../E-commerce-AP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,7 +92,8 @@
       <workItem from="1601133011668" duration="1649000" />
       <workItem from="1601208597625" duration="3872000" />
       <workItem from="1601643502254" duration="4106000" />
-      <workItem from="1601719257884" duration="5848000" />
+      <workItem from="1601719257884" duration="6579000" />
+      <workItem from="1601725917117" duration="6754000" />
     </task>
     <servers />
   </component>
@@ -123,6 +113,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="602" y="288" width="706" height="467" key="#Log_Highlighting_(ideolog)" timestamp="1601725806356">
+      <screen x="0" y="27" width="1920" height="983" />
+    </state>
+    <state x="602" y="288" width="706" height="467" key="#Log_Highlighting_(ideolog)/0.27.1920.983@0.27.1920.983" timestamp="1601725806356" />
     <state x="672" y="385" width="555" height="279" key="#Updates" timestamp="1601643525430">
       <screen x="0" y="27" width="1920" height="983" />
     </state>

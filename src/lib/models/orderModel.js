@@ -13,7 +13,7 @@ const orderModel = connection.define('orders', {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-            model: require('./customerModel').customerModel,
+            model: require('../models/customerModel').customerModel,
             key: 'username'
         }
     },
@@ -21,7 +21,7 @@ const orderModel = connection.define('orders', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: require('./productModel').productModel,
+            model: require('../models/productModel').productModel,
             key: 'id'
         }
     },

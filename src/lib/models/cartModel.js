@@ -21,7 +21,7 @@ const cartItemsModel = connection.define('shoppingCart', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: require('./productModel').productModel,
+            model: require('../models/productModel').productModel,
             key: 'id'
         }
     },

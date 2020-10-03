@@ -77,6 +77,11 @@ const postProduct = async (req, res) => {
             throw new Error(err.message)
         }
 
+        [err, result] = await to(databaseP.productModel.create(req.body))
+        if (err) {
+            throw new Error(err.message)
+        }
+
         return res.json({
             'data': {"Success": "Product Added"},
             'error': null

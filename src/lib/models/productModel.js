@@ -27,7 +27,7 @@ const productModel = connection.define('products', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: require('./categoryModel').categoryModel,
+            model: require('../models/categoryModel').categoryModel,
             key: 'id'
         }
     }

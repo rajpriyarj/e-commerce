@@ -23,7 +23,7 @@ const attributesModel = connection.define('attributes', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: require('./productModel').productModel,
+            model: require('../models/productModel').productModel,
             key: 'id'
         }
     }

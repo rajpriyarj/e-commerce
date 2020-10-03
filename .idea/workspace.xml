@@ -19,7 +19,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="077e1b05-95cb-4371-be9e-60a406a346de" name="Default Changelist" comment="" />
+    <list default="true" id="077e1b05-95cb-4371-be9e-60a406a346de" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_attributes.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_attributes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_category.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_customers.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_customers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_products.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/c_shoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_shoppingCart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/attributes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/attributes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/customer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/shoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/shoppingCart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/alerting/sentry.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/alerting/sentry.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/database/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/database/connection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/logger/winston.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/logger/winston.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +73,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../E-commerce-AP" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -76,6 +100,10 @@
       <workItem from="1601026725357" duration="3747000" />
       <workItem from="1601097814483" duration="156000" />
       <workItem from="1601097971156" duration="2273000" />
+      <workItem from="1601133011668" duration="1649000" />
+      <workItem from="1601208597625" duration="3872000" />
+      <workItem from="1601643502254" duration="4106000" />
+      <workItem from="1601719257884" duration="5848000" />
     </task>
     <servers />
   </component>
@@ -95,14 +123,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="672" y="385" width="555" height="279" key="#Updates" timestamp="1601643525430">
+      <screen x="0" y="27" width="1920" height="983" />
+    </state>
+    <state x="672" y="385" width="555" height="279" key="#Updates/0.27.1920.983@0.27.1920.983" timestamp="1601643525430" />
+    <state x="195" y="320" width="559" height="410" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601644876381">
+      <screen x="0" y="27" width="1920" height="983" />
+    </state>
+    <state x="195" y="320" width="559" height="410" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1920.983@0.27.1920.983" timestamp="1601644876381" />
     <state x="213" y="267" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601098527879">
       <screen x="0" y="27" width="1920" height="983" />
     </state>
     <state x="213" y="267" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.983@0.27.1920.983" timestamp="1601098527879" />
-    <state x="258" y="276" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601097968193">
+    <state x="258" y="276" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601719307401">
       <screen x="0" y="27" width="1920" height="983" />
     </state>
-    <state x="258" y="276" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.983@0.27.1920.983" timestamp="1601097968193" />
+    <state x="258" y="276" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.983@0.27.1920.983" timestamp="1601719307401" />
     <state width="917" height="252" key="GridCell.Tab.0.bottom" timestamp="1601011184767">
       <screen x="0" y="27" width="1920" height="983" />
     </state>

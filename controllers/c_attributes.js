@@ -1,16 +1,17 @@
 const {to} = require('await-to-js')
 
-const database = require('./../src/lib/database/database')
+const database = require('../src/lib/models/attributesModel')
 const logger = require('./../src/lib/logger/winston')
+const attributeValue = require('./../src/lib/Payload/validation')
 
-const getAttributes = async (params) => {
+const getAttributes = async (req, res) => {
     try {
         let err, result
 
-        if (params.attribute_id) {
-            [err, result] = await to(database.attributeModel.findAll({
+        if (req.params.attribute_id) {
+            [err, result] = await to(database.attributesModel.findAll({
                 where: {
-                    id: params.attribute_id
+                    id: req.params.attribute_id
                 }
             }))
             if (err) {
@@ -21,14 +22,14 @@ const getAttributes = async (params) => {
                 throw new Error("No attribute found with this id !")
             }
 
-            return {
+            return res.json({
                 'data': result,
                 'error': null
-            }
-        } else if (params.product_id) {
-            [err, result] = await to(database.attributeModel.findAll({
+            });
+        } else if (req.params.product_id) {
+            [err, result] = await to(database.attributesModel.findAll({
                 where: {
-                    product_id: params.product_id
+                    product_id: req.params.product_id
                 }
             }))
             if (err) {
@@ -39,19 +40,19 @@ const getAttributes = async (params) => {
                 throw new Error('No attributes found for this product id !')
             }
 
-            return {
+            return res.json({
                 'data': result,
                 'error': null
-            }
+            });
         } else {
-            [err, result] = await to(database.attributeModel.findAll())
+            [err, result] = await to(database.attributesModel.findAll())
             if (err) {
                 throw new Error(err.message)
             }
-            return {
+            return res.json({
                 'data': {'Category details': result},
                 'error': null
-            }
+            });
         }
     } catch (err) {
         logger.error(err.message)
@@ -65,39 +66,32 @@ const getAttributes = async (params) => {
 }
 
 
-const postAttribute = async (params) => {
+const postAttribute = async (req, res) => {
     try {
         let err, result
 
-        // [err, result] = category.validate(params)
-        if (!params.name) {
-            throw new Error('Attribute name is a required value!')
-        }
-        if (!params.value) {
-            throw new Error('Attribute value can\'t be blank!')
-        }
-        if (!params.product_id) {
-            throw new Error('Attribute\'s product_id is a required value!')
-        }
-
-        [err, result] = await to(database.attributeModel.create(params))
+        [err, result] = await to(attributeValue.newAttribute.validateAsync(req.body))
         if (err) {
             throw new Error(err.message)
         }
 
+        [err, result] = await to(database.attributesModel.create(req.body))
+        if (err) {
+            throw new Error(err.message)
+        }
 
-        return {
+        return res.json({
             'data': {"Success": "Attribute Added"},
             'error': null
-        }
+        });
     } catch (err) {
         logger.error(err.message)
-        return {
+        return res.json({
             'data': null,
             'error': {
                 'message': err.message
             }
-        }
+        });
     }
 }
 

@@ -1,12 +1,12 @@
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
 
-// or use es6 import statements
-// import * as Tracing from '@sentry/tracing';
 function alert() {
+
     Sentry.init({
-        dsn: "https://a90dcbb5413b4dbf8d385b9815bda7ba@o447857.ingest.sentry.io/5428314",
+        dsn: "https://8e58381899d546ffaa797bd27eda0784@o447852.ingest.sentry.io/5428313",
         tracesSampleRate: 1.0,
     });
 }
+
 module.exports = alert

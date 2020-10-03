@@ -1,16 +1,19 @@
 const {to} = require('await-to-js')
 
-const database = require('./../src/lib/database/database')
+const databaseP = require('../src/lib/models/productModel')
+const databaseR = require('../src/lib/models/reviewModel')
 const logger = require('./../src/lib/logger/winston')
+const reviewValue = require('./../src/lib/Payload/validation')
+const productValue = require('./../src/lib/Payload/validation')
 
-const getProducts = async (params) => {
+const getProducts = async (req, res) => {
     try {
         let err, result
 
-        if (params.product_id) {
-            [err, result] = await to(database.productModel.findAll({
+        if (req.params.product_id) {
+            [err, result] = await to(databaseP.productModel.findAll({
                 where: {
-                    id: params.product_id
+                    id: req.params.product_id
                 }
             }))
             if (err) {
@@ -21,14 +24,14 @@ const getProducts = async (params) => {
                 throw new Error('No product found for this id!')
             }
 
-            return {
+            return res.json({
                 'data': result,
                 'error': null
-            }
-        } else if (params.category_id) {
-            [err, result] = await to(database.productModel.findAll({
+            })
+        } else if (req.params.category_id) {
+            [err, result] = await to(databaseP.productModel.findAll({
                 where: {
-                    category_id: params.category_id
+                    category_id: req.params.category_id
                 }
             }))
             if (err) {
@@ -39,80 +42,68 @@ const getProducts = async (params) => {
                 throw new Error('No product found for this category id!')
             }
 
-            return {
+            return res.json({
                 'data': result,
                 'error': null
-            }
+            })
         } else {
-            [err, result] = await to(database.productModel.findAll())
+            [err, result] = await to(databaseP.productModel.findAll())
             if (err) {
                 throw new Error(err.message)
             }
 
-            return {
+            return res.json({
                 'data': result,
                 'error': null
-            }
+            })
         }
     } catch (err) {
         logger.error(err.message)
-        return {
+        return res.json({
             'data': null,
             'error': {
                 'message': err.message
             }
-        }
+        })
     }
 }
 
-const postProduct = async (params) => {
+const postProduct = async (req, res) => {
     try {
         let err, result
 
-        if (!params.name) {
-            throw new Error('Product name is a required attribute')
-        }
-        if (!params.details) {
-            throw new Error('Product details is a required attribute')
-        }
-        if (!params.price) {
-            throw new Error('Product price is a required attribute')
-        }
-        if (!params.category_id) {
-            throw new Error('Product\'s category_id is a required attribute')
-        }
-
-        [err, result] = await to(database.productModel.create(params))
+        [err, result] = await to(productValue.newProduct.validateAsync(req.body))
         if (err) {
             throw new Error(err.message)
         }
 
-        return {
+        return res.json({
             'data': {"Success": "Product Added"},
             'error': null
-        }
+        })
     } catch (err) {
         logger.error(err.message)
-        return {
+        return res.json({
             'data': null,
             'error': {
                 'message': err.message
             }
-        }
+        })
     }
 }
 
-const postReview = async (params) => {
+const postReview = async (req, res) => {
     try {
         let err, result
 
-        if (!params.product_id) {
-            throw new Error('Please provide the product_id to post the review for')
+        [err, result] = await to(reviewValue.newReview.validateAsync(req.body))
+        if(err){
+            throw new Error(err.message)
         }
 
-        [err, result] = await to(database.productModel.findAll({
+        [err, result] = await to(databaseP.productModel.findAll({
             where: {
-                id: params.product_id
+                id: req.body.product_id
             }
         }))
         if (err) {
@@ -122,37 +113,33 @@ const postReview = async (params) => {
             throw new Error('No product exists with this id !')
         }
 
-        if (!params.review) {
-            throw new Error('Review cannot be blank!')
-        }
-
-        [err, result] = await to(database.reviewModel.create(params))
+        [err, result] = await to(databaseR.review_model.create(req.body))
         if (err) {
             throw new Error(err.message)
         }
 
-        return {
+        return res.json({
             'data': {"Success": "Review added!"},
             'error': null
-        }
+        })
 
     } catch (err) {
         logger.error(err.message)
-        return {
+        return res.json({
             'data': null,
             'error': {
                 'message': err.message
             }
-        }
+        })
     }
 }
 
-const getReview = async (params) => {
+const getReview = async (req, res) => {
     try {
         let err, result
-        [err, result] = await to(database.reviewModel.findAll({
+        [err, result] = await to(databaseR.review_model.findAll({
             where: {
-                product_id: params.product_id
+                product_id: req.body.product_id
             }
         }))
         if (err) {
@@ -162,18 +149,18 @@ const getReview = async (params) => {
             throw new Error('No review found for this product id!')
         }
 
-        return {
+        return res.json({
             'data': result,
             'error': null
-        }
+        })
     } catch (err) {
         logger.error(err.message)
-        return {
+        return res.json({
             'data': null,
             'error': {
                 'message': err.message
             }
-        }
+        })
     }
 }
 

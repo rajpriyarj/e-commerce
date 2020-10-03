@@ -1,21 +1,17 @@
 const {to} = require('await-to-js')
-const Joi = require('@hapi/joi')
-
-const database = require('./../src/lib/database/database')
+const databaseC = require('../src/lib/models/categoryModel')
+const databaseP = require('../src/lib/models/productModel')
 const logger = require('./../src/lib/logger/winston')
+const categoryValue = require('./../src/lib/Payload/validation')
 
-const category = Joi.object({
-    name: Joi.string().required()
-})
-
-const getCategories = async (params) => {
+const getCategories = async (req, res) => {
     try {
         let err, result
 
-        if (params.category_id) {
-            [err, result] = await to(database.categoryModel.findAll({
+        if (req.params.category_id) {
+            [err, result] = await to(databaseC.categoryModel.findAll({
                 where: {
-                    id: params.category_id
+                    id: req.params.category_id
                 }
             }))
             if (err) {
@@ -26,15 +22,15 @@ const getCategories = async (params) => {
                 throw new Error("No category found with this id !")
             }
 
-            return {
+            return res.json({
                 'data': result,
                 'error': null
-            }
-        } else if (params.product_id) {
-            [err, result] = await to(database.productModel.findAll({
+            })
+        } else if (req.params.product_id) {
+            [err, result] = await to(databaseP.productModel.findAll({
                 attributes: ['category_id'],
                 where: {
-                    id: params.product_id
+                    id: req.params.product_id
                 }
             }))
             if (err) {
@@ -49,14 +45,14 @@ const getCategories = async (params) => {
                 category_id: result[0]['dataValues']['category_id']
             })
         } else {
-            [err, result] = await to(database.categoryModel.findAll())
+            [err, result] = await to(databaseC.categoryModel.findAll())
             if (err) {
                 throw new Error(err.message)
             }
-            return {
+            return res.json({
                 'data': {'Category details': result},
                 'error': null
-            }
+            })
         }
     } catch (err) {
         logger.error(err.message)
@@ -70,27 +66,25 @@ const getCategories = async (params) => {
 }
 
 
-const postCategory = async (params) => {
+const postCategory = async (req, res) => {
     try {
         let err, result
 
-        // [err, result] = category.validate(params)
-        if (!params.name) {
-            throw new Error('name missing!')
+        [err, result] = await to(categoryValue.newCategory.validateAsync(req.body))
+        if (err){
+            throw new Error(err.message)
         }
 
-        [err, result] = await to(database.categoryModel.create({
-            name: params.name
+        [err, result] = await to(databaseC.categoryModel.create({
+            name: req.body.name
         }))
         if (err) {
             throw new Error(err.message)
         }
-
-
-        return {
+        return res.json({
             'data': {"Success": "Category Added"},
             'error': null
-        }
+        })
     } catch (err) {
         logger.error(err.message)
         return {

@@ -1,73 +1,64 @@
 const {to} = require('await-to-js')
 
-const database = require('./../src/lib/database/database')
+const databaseO = require('../src/lib/models/orderModel')
+const databaseP = require('../src/lib/models/productModel')
+const databaseC = require('../src/lib/models/customerModel')
 const logger = require('./../src/lib/logger/winston')
+const orderValue = require('./../src/lib/Payload/validation')
 
-
-const getOrders = async (params) => {
-    let err, result
+const getOrders = async (req, res) => {
     try {
-        [err, result] = await to(database.orderModel.findAll({
+        let err, result
+        [err, result] = await to(databaseO.orderModel.findAll({
             where: {
-                customer: params.username
+                customer: req.user.username
             }
         }))
         if (err) {
             throw new Error(err.message)
         }
 
-        return {
+        return res.json({
             'data': result,
             'error': null
-        }
+        })
     } catch (err) {
         logger.error(err.message)
-        return {
+        return res.json({
             'data': null,
             'error': {
                 'message': err.message
             }
-        }
+        })
     }
 }
 
-const newOrder = async (params) => {
+const newOrder = async (req, res) => {
     try {
         let err, result
-
-        params.body.customer = params.user.username;
-        if (!params.body.product_id) {
-            throw new Error('product_id is a required attribute!')
-        }
-        if (!params.body.qty) {
-            throw new Error('qty is a required attribute!')
-        }
-
-        if (parseInt(params.body.qty)) {
-            if (parseInt(params.body.qty) < 0) {
-                throw new Error("quantity must be a natural number")
-            }
-        } else {
-            throw new Error("qty is not a valid natural number !")
-        }
-
-        [err, result] = await to(database.productModel.findAll({
-            where: {
-                id: params.body.product_id
-            }
-        }))
-        if (err) {
+        [err, result] = await to(orderValue.newOrder.validateAsync(req.body))
+        if(err){
             throw new Error(err.message)
         }
-        if (!result[0]) {
-            throw new Error(' no product found for this id!')
+
+        req.body.customer = req.user.username;
+        [err, result] = await to(databaseP.productModel.findAll({
+            where: {
+               id: req.body.product_id
+            }
+        }))
+        if(err){
+            throw new Error((err.message))
+        }
+        if(!result[0]){
+            throw new Error('No product of this id exist !')
         }
 
         let price = result[0]['dataValues']['price'];
 
-        [err, result] = await to(database.customerModel.findAll({
+        [err, result] = await to(databaseC.customerModel.findAll({
             where: {
-                username: params.user.username
+                username: req.user.username
             }
         }))
 
@@ -79,25 +70,25 @@ const newOrder = async (params) => {
         }
 
 
-        [err, result] = await to(database.orderModel.create(params.body))
+        [err, result] = await to(databaseO.orderModel.create(req.body))
         if (err) {
             throw new Error(err.message)
         }
 
-        return {
+        return res.json({
             'data': {
                 'message': 'Order placed successfully!',
                 'amount': `₹${price} x ${params.body.qty} items = ₹${price * params.body.qty}`
             }, 'error': null
-        }
+        })
     } catch (err) {
         logger.error(err.message)
-        return {
+        return res.json({
             'data': null,
             'error': {
                 'message': err.message
             }
-        }
+        })
     }
 }
 

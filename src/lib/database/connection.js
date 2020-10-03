@@ -8,28 +8,23 @@ const connection = new Sequelize(
     'Rj12345@',
     {
         host: 'localhost',
-        dialect: "mssql",
-        //logging: msg => logger.info(msg)
+        dialect: 'mysql',
+        logging: msg => logger.info(msg)
     }
 )
 
 const categoryModel = connection.define('category', {
-    id:{
+    id: {
         type: DataTypes.BIGINT(11),
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    name:{
+    name: {
         type: DataTypes.STRING,
         notEmpty: true,
         notNull: true
-    },
-    // description: {
-    //     type: DataTypes.STRING,
-    //     notEmpty: true,
-    //     notNull: true
-    // }
+    }
 })
 
 const productModel = connection.define('products', {
@@ -57,13 +52,13 @@ const productModel = connection.define('products', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: categoryModel,
+            model: category_model,
             key: 'id'
         }
     }
 })
 
-const attributeModel = connection.define('attributes', {
+const attributesModel = connection.define('attributes', {
     id: {
         type: DataTypes.BIGINT(11),
         autoIncrement: true,
@@ -84,7 +79,7 @@ const attributeModel = connection.define('attributes', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: productModel,
+            model: product_model,
             key: 'id'
         }
     }
@@ -106,7 +101,7 @@ const reviewModel = connection.define('reviews', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: productModel,
+            model: product_model,
             key: 'id'
         }
     }
@@ -159,7 +154,7 @@ const orderModel = connection.define('orders', {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-            model: customerModel,
+            model: customer_model,
             key: 'username'
         }
     },
@@ -167,7 +162,7 @@ const orderModel = connection.define('orders', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: productModel,
+            model: product_model,
             key: 'id'
         }
     },
@@ -188,7 +183,7 @@ const cartItemsModel = connection.define('shoppingCart', {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-            model: customerModel,
+            model: customer_model,
             key: 'username'
         }
     },
@@ -196,7 +191,7 @@ const cartItemsModel = connection.define('shoppingCart', {
         type: DataTypes.BIGINT(11),
         allowNull: false,
         references: {
-            model: productModel,
+            model: product_model,
             key: 'id'
         }
     },
@@ -205,6 +200,7 @@ const cartItemsModel = connection.define('shoppingCart', {
         defaultValue: 1
     }
 })
+
 
 const connect = async () => {
     let [err, result] = await to(connection.sync({alter: true}))
@@ -220,7 +216,7 @@ module.exports = {
     connect,
     categoryModel,
     productModel,
-    attributeModel,
+    attributesModel,
     reviewModel,
     customerModel,
     orderModel,

@@ -6,7 +6,7 @@ This is the project made using:
 
 ## Official website of Turing e-commerce website:
 
-[![API](https://www.svgrepo.com/show/147094/api.svg)](https://backendapi.turing.com/docs/#/)
+[![API](https://www.svgrepo.com/show/147094/api.svg | width= 100)](https://backendapi.turing.com/docs/#/)
 
 ## Requirements
 

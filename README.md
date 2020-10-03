@@ -5,7 +5,7 @@ This is the project made using:
 >NodeJS | ExpressJS | JWT | Sequelize | Winston-logging | Bcrypt | JOI | Sentry-alert
 
 ## Official website of Turing e-commerce website:
-[![alt_text]<img src="https://www.svgrepo.com/show/147094/api.svg" width=100/>](https://backendapi.turing.com/docs/#/)
+[![]<img src="https://www.svgrepo.com/show/147094/api.svg" width=100/>](https://backendapi.turing.com/docs/#/)
 
 
 ## Requirements

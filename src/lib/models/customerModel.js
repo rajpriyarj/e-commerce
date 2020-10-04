@@ -38,4 +38,6 @@ const customerModel = connection.define('customer', {
     }
 })
 
-module.exports = {customerModel: customerModel}
+module.exports = {
+    customerModel
+}

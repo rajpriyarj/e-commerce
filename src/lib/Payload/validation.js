@@ -27,6 +27,8 @@ const newCustomer = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().email().required(),
     phone: Joi.number().required(),
+    address: Joi.string().optional(),
+    creditCardNumber: Joi.number().optional(),
     password: Joi.required(),
 })
 

@@ -1,0 +1,654 @@
+{
+	"info": {
+		"_postman_id": "5a2497e3-b819-46af-b8da-45eb58d87454",
+		"name": "e-commerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add new category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pants\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/category",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch all categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/category",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view category by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/category/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view category of the product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/category/inProduct/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"category",
+						"inProduct",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add new product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"LG LED\",\n    \"details\": \"Televisions under Rs. 15000 with display of 32 inches\",\n    \"price\": 12999,\n    \"category_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/products/6",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product by category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/products/inCategory/2",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"inCategory",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add new attributes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"XYZ\",\n    \"value\": \"ABC\",\n    \"product_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/attributes",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"attributes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch all attributes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/attributes",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"attributes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch attribute by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/attributes/2",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"attributes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get attributes of a product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/attributes/inProduct/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"attributes",
+						"inProduct",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post review of products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"review\": \"Good product\",\n    \"product_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/products/1/reviews",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"1",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get review of a product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/products/1/reviews",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"products",
+						"1",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup new Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ria123\",\n    \"name\": \"Ria Singh\",\n    \"email\": \"ria@test.com\",\n    \"phone\": 88680777,\n    \"address\": \"PLTR\",\n    \"creditCardNumber\": 1786567890,\n    \"password\": 1234\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/customer/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"customer",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ria123\",\n    \"password\": 1234\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/customer/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"customer",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJpeWExcmFqcHJpeWEiLCJlbmNyeXB0ZWRQYXNzd29yZCI6IiQyYiQxMiRVRHljLmpwTldYOFMzb3VhdnhOVHl1dTM2VG1BTUtIeDFjLnpNQVFKTjlMOVUzeVlEbVpXYSIsImlhdCI6MTYwMTc5MDQwMiwiZXhwIjoxNzc0NTkwNDAyfQ.rFTNW4B2EnbEOM-MJEZMvtTSlb9UJ2zEVarMUzY2TCA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJpeWExcmFqcHJpeWEiLCJlbmNyeXB0ZWRQYXNzd29yZCI6IiQyYiQxMiRVRHljLmpwTldYOFMzb3VhdnhOVHl1dTM2VG1BTUtIeDFjLnpNQVFKTjlMOVUzeVlEbVpXYSIsImlhdCI6MTYwMTc0ODI4NCwiZXhwIjoxNzc0NTQ4Mjg0fQ.IZpPTd1MWOgXcfZxTfs45yuWrvqw6jDYFDhRGIBspS8",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:4000/customer",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJpeWExcmFqcHJpeWEiLCJlbmNyeXB0ZWRQYXNzd29yZCI6IiQyYiQxMiRVRHljLmpwTldYOFMzb3VhdnhOVHl1dTM2VG1BTUtIeDFjLnpNQVFKTjlMOVUzeVlEbVpXYSIsImlhdCI6MTYwMTc5MDQwMiwiZXhwIjoxNzc0NTkwNDAyfQ.rFTNW4B2EnbEOM-MJEZMvtTSlb9UJ2zEVarMUzY2TCA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"ABCDE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/customer/address",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"customer",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Credit Card Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJpeWExcmFqcHJpeWEiLCJlbmNyeXB0ZWRQYXNzd29yZCI6IiQyYiQxMiRVRHljLmpwTldYOFMzb3VhdnhOVHl1dTM2VG1BTUtIeDFjLnpNQVFKTjlMOVUzeVlEbVpXYSIsImlhdCI6MTYwMTc5MDQwMiwiZXhwIjoxNzc0NTkwNDAyfQ.rFTNW4B2EnbEOM-MJEZMvtTSlb9UJ2zEVarMUzY2TCA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"creditCard\": 123574675345\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/customer/creditCard",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"customer",
+						"creditCard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhajEyMyIsImVuY3J5cHRlZFBhc3N3b3JkIjoiJDJiJDEyJDBqSnhLZDRzbkV3SG83YmhwRlFwdS5LVjNKZk4wci9PQUtQWTVRRXNwQS9mdTdaa1licTdtIiwiaWF0IjoxNjAxNzk0ODE5LCJleHAiOjE3NzQ1OTQ4MTl9.UKtPxljsMeW3t-aldKaH8F01h2JrMGAKjbaIwJbu0DQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 2,\n    \"qty\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/orders/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get order details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhajEyMyIsImVuY3J5cHRlZFBhc3N3b3JkIjoiJDJiJDEyJDBqSnhLZDRzbkV3SG83YmhwRlFwdS5LVjNKZk4wci9PQUtQWTVRRXNwQS9mdTdaa1licTdtIiwiaWF0IjoxNjAxNzk0ODE5LCJleHAiOjE3NzQ1OTQ4MTl9.UKtPxljsMeW3t-aldKaH8F01h2JrMGAKjbaIwJbu0DQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all cart items",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJpeWExcmFqcHJpeWEiLCJlbmNyeXB0ZWRQYXNzd29yZCI6IiQyYiQxMiRVRHljLmpwTldYOFMzb3VhdnhOVHl1dTM2VG1BTUtIeDFjLnpNQVFKTjlMOVUzeVlEbVpXYSIsImlhdCI6MTYwMTc5MDQwMiwiZXhwIjoxNzc0NTkwNDAyfQ.rFTNW4B2EnbEOM-MJEZMvtTSlb9UJ2zEVarMUzY2TCA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/shoppingCart",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"shoppingCart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add item to cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJhajEyMyIsImVuY3J5cHRlZFBhc3N3b3JkIjoiJDJiJDEyJDBqSnhLZDRzbkV3SG83YmhwRlFwdS5LVjNKZk4wci9PQUtQWTVRRXNwQS9mdTdaa1licTdtIiwiaWF0IjoxNjAxNzk0ODE5LCJleHAiOjE3NzQ1OTQ4MTl9.UKtPxljsMeW3t-aldKaH8F01h2JrMGAKjbaIwJbu0DQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 2,\n    \"qty\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/shoppingCart/add",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"shoppingCart",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update quantity",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove product from cart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get toatl amount of cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -2,6 +2,7 @@ const {to} = require('await-to-js')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 require('dotenv').config()
+
 const database = require('../src/lib/models/customerModel')
 const logger = require('./../src/lib/logger/winston')
 const customerValue = require('./../src/lib/Payload/validation')
@@ -15,12 +16,7 @@ const postCustomer = async (req, res) => {
             throw new Error(err.message)
         }
 
-        let encryptedPassword
-        [err, encryptedPassword] = await to(bcrypt.hash(req.body.password.toString(), 10))
-        if (err) {
-            throw new Error(err.message)
-        }
-
+        let encryptedPassword = await passwordHash(req.body.password.toString());
         delete req.body.password;
         req.body.encryptedPassword = encryptedPassword;
 
@@ -40,14 +36,14 @@ const postCustomer = async (req, res) => {
         if (err) {
             throw new Error(err.message)
         }
-
+        //
         let customer = {username: req.body.username, encryptedPassword: req.body.encryptedPassword};
-        const token = jwt.sign(customer, process.env.SECRET_KEY, {expiresIn: '50m'})
+        // const token = jwt.sign(customer, process.env.SECRET_KEY, {expiresIn: '50m'})
 
         return res.json({
             'data': {
                 'message': 'Signed up successfully!',
-                'your Access Token': token
+                'your Access Token': generateToken(customer)
             },
             'error': null
         })
@@ -92,11 +88,11 @@ const loginCustomer = async (req, res) => {
         }
         if (result) {
             customer = {username: req.body.username, encryptedPassword: customer.encryptedPassword}
-            const token = jwt.sign(customer, process.env.SECRET_KEY, {expiresIn: '50m'})
+            // const token = jwt.sign(customer, process.env.SECRET_KEY, {expiresIn: '50m'})
             return res.json({
                 'data': {
                     'message': 'logged in successfully !',
-                    'your Access Token': token
+                    'your Access Token': generateToken(customer)
                 },
                 'error': null
             })
@@ -187,10 +183,10 @@ const updateCreditCard = async (req, res) => {
         }
 
         [err, result] = await to(database.customerModel.update({
-            creditCardNumber: params.body.creditCard
+            creditCardNumber: req.body.creditCard
         }, {
             where: {
-                username: params.user.username
+                username: req.user.username
             }
         }))
         if (err) {
@@ -212,5 +208,27 @@ const updateCreditCard = async (req, res) => {
         })
     }
 }
+
+const passwordHash = async (password) => {
+    const saltRounds = 12;
+    let [err, passwordHash] = await to(bcrypt.hash(password, saltRounds));
+    try{
+        if (err) {
+            //logger.error('Error while generating password hash', { error: err });
+            throw Error('Error while generating password hash');
+        }
+    } catch (e) {
+        console.log(e.message)
+    }
+
+    return passwordHash;
+};
+
+const generateToken  = (userData) => {
+    let token = jwt.sign(userData, process.env.SECRET_Key, {
+        expiresIn: 172800000,
+    });
+    return token;
+};
 
 module.exports = {postCustomer, loginCustomer, getCustomer, updateAddress, updateCreditCard}

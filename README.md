@@ -50,7 +50,11 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 ## Running the project
 
     $ npm start
-    
+  
+## Postman Collection Link
+
+https://www.getpostman.com/collections/8b826265a056cd56285c
+
 ## Link of Demonstration Video
 
 https://youtu.be/_vWoPW75_jI

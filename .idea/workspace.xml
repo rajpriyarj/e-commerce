@@ -22,15 +22,6 @@
     <list default="true" id="077e1b05-95cb-4371-be9e-60a406a346de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/c_product.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/c_product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/error.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/models/attributesModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/attributesModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/models/cartModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/cartModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/models/orderModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/orderModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/models/productModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/productModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/models/reviewModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/models/reviewModel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +84,11 @@
       <workItem from="1601208597625" duration="3872000" />
       <workItem from="1601643502254" duration="4106000" />
       <workItem from="1601719257884" duration="6579000" />
-      <workItem from="1601725917117" duration="6754000" />
+      <workItem from="1601725917117" duration="11033000" />
+      <workItem from="1601746601446" duration="2115000" />
+      <workItem from="1601790263030" duration="3940000" />
+      <workItem from="1601825469824" duration="19000" />
+      <workItem from="1602077670433" duration="71000" />
     </task>
     <servers />
   </component>
